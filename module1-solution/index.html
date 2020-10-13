@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+  </head>
+<body ng-app="LunchCheck">
+
+   <div ng-controller="LunchCheckController" class="container">
+
+     <h1>Lunch Checker</h1>
+     <p>
+         Please note that "empty" items (i.e. nothing but spaces or nothing
+         at all between two consecutive commas) will <strong>NOT</strong>
+         be considered as lunch items.
+     </p>
+     <p>
+         For example, the following 2 lists consist of <strong>3</strong>
+         (and <strong>not 4</strong>) items:
+     </p>
+     <li><i>item 1, item2,,item3</i></li>
+     <li><i>item 1, item2, ,item3</i></li>
+     <br>
+
+        <!-- Textbox -->
+         <div class="form-group">
+             <input id="lunch-menu" type="text" ng-model="lunchItems"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control" style="border-color: {{color}}">
+         </div>
+
+        <!-- Button -->
+         <div class="form-group">
+             <button class="btn btn-default"
+             ng-click="checkIfTooMuch()">Check If Too Much</button>
+         </div>
+
+        <!-- Placeholder -->
+         <div class="form-group message" style="color: {{color}};">{{message}}</div>
+
+   </div>
+
+</body>
+</html>
