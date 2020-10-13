@@ -17,10 +17,8 @@ function LunchCheckController($scope) {
         var numLunchItems = $scope.lunchItems
         // split the lunchItems string on the commas
         .split(',')
-        // trim away all commas and white spaces
-        .map(function(item) { return item.trim(); })
-        // remove all empty strings, they do not count
-        .filter(function(item) { return item; })
+        // remove all strings that are empty or consisting of spaces only
+        .filter(function(item) { return item.trim(); })
         // this list holds the actual total number of lunch items
         .length;
 
